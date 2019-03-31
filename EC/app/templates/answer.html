@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="container">
+        <div class="row">
+        <div  class="jumbotron" style="background-color:white;" style="inset -1px 1px 1px #444;">
+        <ul>
+            {% for message in messages %}
+            <p class="text-middle" >{{ message }}</p>
+            {% endfor %}
+        </ul>
+        </div>
+        </div>
+        </div>
+        {% endif %}
+    {% endwith %}
+
+
+    <div class="container">
+        {% if type %}
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6" style="inset -1px 1px 1px #444;">
+                <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                {{ form.defence.label }} {{ form.defence() }}
+                {% for error in form.defence.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                </p>
+                <p>
+                {{ form.damage.label }} {{ form.damage() }}
+                {% for error in form.damage.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                </p>
+                <p>{{ form.submit() }}</p>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6" style="inset -1px 1px 1px #444;">
+                <p>If you are familiar with law and know which law your input case it's connect to, please seclect it to help us collect data.</p>
+                <p>Your help will train the system better.</p>
+                <form action="" method="post" novalidate>
+                {{ form2.hidden_tag() }}
+                <p>
+                {{ form2.battery.label }} {{ form2.battery() }}
+                {% for error in form2.battery.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                
+                {{ form2.assult.label }} {{ form2.assult() }}
+                {% for error in form2.assult.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                    
+                {{ form2.fault.label }} {{ form2.fault() }}
+                {% for error in form2.fault.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                
+                {{ form2.notT.label }} {{ form2.notT() }}
+                {% for error in form2.notT.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                </p>
+                <p>{{ form.submit() }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6" style="inset -1px 1px 1px #444;">
+                <a href="{{ url_for('index') }}">Home</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

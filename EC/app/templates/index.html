@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container" style="background-color:white;">
+        <div class="jumbotron" style="background-color:white;">
+            <p class="text-middle" style="background-color:white;">Your personal analysiser is reaady. What about write down your case?</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6" style="inset -1px 1px 1px #444;">
+                <form action="" method="post" novalidate>
+                    {{ form2.hidden_tag() }}
+                <p>
+                {{ form2.usercase(size=300) }}<br>
+                {% for error in form2.usercase.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+                </p>
+                <p>{{ form2.submit() }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

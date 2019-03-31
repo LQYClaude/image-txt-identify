@@ -1,0 +1,54 @@
+<html><!made by Qianyi Lu>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <link href="/static/css/index.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#case').click(function() {
+                $('textarea[name="case"]').val("");
+            });
+        });
+    </script>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcome to Law4U</title>
+    {% endif %}
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-defult" role="navigation">
+        <div class="container-fluid">
+        <div>
+            <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="/static/image/title.jpg" height=3% alt="Law4U" />
+                    Law4U
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('lawyer') }}">Find a lawyer</a></li>
+                <li><a href="{{ url_for('contact') }}">Connect us</a></li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <br><br><br>
+    <script>  
+        $(window).scroll(function () {  
+            if ($(".navbar").offset().top > 50) {$(".navbar-fixed-top").addClass("top-nav");  
+            }else {$(".navbar-fixed-top").removeClass("top-nav");}  
+        })</script> 
+        
+        {% block content %}{% endblock %}
+        
+    </body>
+</html>

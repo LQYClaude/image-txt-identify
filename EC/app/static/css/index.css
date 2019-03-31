@@ -1,0 +1,8 @@
+html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%适应整个屏幕*/  
+        .my-navbar {padding:20px 0;transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;background-color: #fff}  
+        .my-navbar a{background:transparent !important;color:#000 !important}  
+        .my-navbar a:hover {color:#45bcf9 !important;background:transparent;outline:0}  
+        .my-navbar a {transition: color 0.5s ease-in-out;}/*-webkit-transition ;-moz-transition*/  
+        .top-nav {padding:0;background:#000;}  
+        button.navbar-toggle {background-color:#fbfbfb;}/*整个背景都是transparent透明的，会看不到，所以再次覆盖一下*/  
+        button.navbar-toggle > span.icon-bar {background-color:#dedede}  
